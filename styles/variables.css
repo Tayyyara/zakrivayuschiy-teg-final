@@ -1,0 +1,26 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+    --main-font: 'Inter-Variable';
+    --accent-font: 'PressStart2P';
+    --font-weight: 400;
+    --heading-font-weight: 700;
+
+    --bg-color: #fff;
+    --text-color: #000;
+    --bg-image: url(../svg/pattern-light.svg);
+    
+    --content-width: clamp(600px, 48.6%, 800px);
+
+    --heart-color: #FF0000;
+    --floppy-size: 21px;
+    --save-button-direction: row;
+}
+
+@media (max-width: 600px) {
+    :root {
+        --content-width: 100%;
+        --floppy-size: 28px;
+        --save-button-direction: column;
+    }
+}
+
