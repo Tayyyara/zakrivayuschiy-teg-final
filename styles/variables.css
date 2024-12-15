@@ -19,6 +19,8 @@
     --heart-color: #FF0000;
     --floppy-size: 21px;
     --save-button-direction: row;
+    --dialog-width: 357px;
+    --dialog-padding-inline: 30px;
 }
 
 @media (max-width: 600px) {
@@ -26,6 +28,8 @@
         --content-width: 100%;
         --floppy-size: 28px;
         --save-button-direction: column;
+        --dialog-width: 341px;
+        --dialog-padding-inline: 42px;
     }
 }
 

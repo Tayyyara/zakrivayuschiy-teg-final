@@ -132,7 +132,7 @@
 
 .post__image {
   position: relative;
-  background-color: aqua;
+  /* background-color: aqua; */
   padding: 0;
 }
 
@@ -227,7 +227,7 @@
   position: relative;
   font-family: var(--accent-font), 'fantasy', sans-serif;
   font-weight: 400;
-  line-height: 0.9em;
+  line-height: 1.9em;
   z-index: 1;
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
@@ -335,4 +335,52 @@
 .like-icon.is-liked .sparks {
   animation: sparks 0.3s 0.3s ease-in 1;
   transform-origin: center;
+}
+
+.dialog {
+  /* width: var(--dialog-width, 341px); */
+  width: 100%;
+  color: inherit;
+  background-color: var(--bg-color, #fff);
+  border: 2px solid currentColor;
+  padding-block: 30px;
+  padding-inline: var(--dialog-padding-inline, 42px);
+  padding-inline: 30px;
+  display: flex;
+  position: fixed;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin: auto;
+}
+
+.dialog:not([open]) {
+pointer-events: none;
+opacity: 0;
+} 
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+} 
+
+.dialog__content{
+  display: flex;
+  gap: 20px;
+} 
+
+.dialog__content .floppy {
+  width: 60px;
+}
+
+.dialog__description {
+  font-family: var(--accent-font), 'fantasy', sans-serif;
+  font-variation-settings: 'wght' var(--font-weight);
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.dialog__button {
+  margin-top: 30px;
+  width: 100%;
+  min-height: 38px;
 }
