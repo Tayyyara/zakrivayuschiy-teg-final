@@ -9,6 +9,11 @@
     --font-weight: 465;
     --heading-font-weight: 785;
     --bg-color: #000;
-    --bg-image: url(../svg/pattern-dark.svg);
     --text-color: #00CC14;
+    --text-outline-color: #000;
+    --button-text-color: #00CC14;
+    --bg-image: 
+        repeating-linear-gradient(#000 0%, #000 2px, transparent 2px, transparent 4px),
+        repeating-linear-gradient(90deg, #000 0%, #000 2px, transparent 2px, transparent 4px),
+        linear-gradient(#007f0c, #004306);
 }

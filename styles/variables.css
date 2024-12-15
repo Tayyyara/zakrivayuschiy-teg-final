@@ -7,7 +7,12 @@
 
     --bg-color: #fff;
     --text-color: #000;
-    --bg-image: url(../svg/pattern-light.svg);
+    --text-outline-color: #fff;
+    --button-text-color: #fff;
+    --bg-image: 
+        repeating-linear-gradient(#d3d3d3 0%, #d3d3d3 2px, transparent 2px, transparent 4px),
+        repeating-linear-gradient(90deg, #d3d3d3 0%, #d3d3d3 2px, transparent 2px, transparent 4px),
+        linear-gradient(#e7e7e7 0.01%, #1a1a1a);
     
     --content-width: clamp(600px, 48.6%, 800px);
 
