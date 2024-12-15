@@ -174,6 +174,10 @@
   margin: 24px 25px 25px 25px;
 }
 
+.post__paragraph:nth-child(3) {
+  opacity: var(--first-paragraph-opacity, 0.5);
+}
+
 .post__buttons {
   margin-block-end: 25px;
   margin-inline: 25px;
