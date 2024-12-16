@@ -16,11 +16,11 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--font-weight);
+  font-family: var(--main-font, 'Inter-Variable'), sans-serif;
+  font-variation-settings: 'wght' var(--font-weight, 400);
   font-size: 18px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #000);
   background-image: var(--bg-image);
   background-size: cover;
   background-repeat: repeat;
@@ -28,18 +28,18 @@
 }
 
 .header {
-  max-width: var(--content-width);
+  max-width: var(--content-width, 100%);
   margin-inline: auto;
   margin-block-start: 100px;
   padding-block-end: 10px;
-  font-family: var(--accent-font), 'fantasy', sans-serif;
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
   font-size: 14px;
   font-weight: 400;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color, #fff);
   border: 2px solid currentColor;
 }
 
@@ -112,20 +112,20 @@
 }
 
 .content {
-  max-width: var(--content-width);
+  max-width: var(--content-width, 100%);
   margin-inline: auto;
   margin-block-start: 100px;
 }
 
 .post {
-  background-color: var(--bg-color);
+  background-color: var(--bg-color, #fff);
   border: 2px solid currentColor;
   margin-bottom: 52px;
 }
 
 .post__title {
   font-size: 18px;
-  font-variation-settings: 'wght' var(--heading-font-weight);
+  font-variation-settings: 'wght' var(--heading-font-weight, 700);
   margin-block: 5px;
   margin-inline: 10px;
 }
@@ -133,13 +133,15 @@
 .post__image {
   position: relative;
   padding: 0;
+  margin-bottom: 25px;
+  border-block: 2px solid currentColor;
 }
 
 .post__image-label {
-  font-family: var(--accent-font), 'fantasy', sans-serif;
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
   font-size: 18px;
   line-height: 1em;
-  font-variation-settings: 'wght' var(--heading-font-weight);
+  font-variation-settings: 'wght' var(--heading-font-weight, 700);
   position: absolute;
   top: 25px;
   right: 25px;
@@ -164,9 +166,9 @@
 .post__image-svg {
   width: 100%;
   aspect-ratio: 1/1;
+  display: block;
   object-fit: cover;
   object-position: center;
-  border-block: 2px solid currentColor;
 }
 
 .filter-grayscale {
@@ -175,12 +177,10 @@
 
 .filter-hue-rotate {
   filter: hue-rotate(var(--filter-hue-rotate-value, 0));
-  border-color: var(--filter-hue-rotate-bolder-color, currentColor);
 }
 
 .filter-invert {
   filter: invert(var(--filter-dark-theme-invert, 0));
-  border-color: var(--filter-invert-border-color, currentColor);
 }
 
 .filter-sepia {
@@ -201,11 +201,7 @@
 
 .post__paragraph {
   font-weight: var(--font-weight);
-  margin: 24px 25px 25px 25px;
-}
-
-.post__paragraph:nth-child(3) {
-  opacity: var(--first-paragraph-opacity, 0.5);
+  margin: 0 25px 25px 25px;
 }
 
 .post__buttons {
@@ -221,7 +217,7 @@
   font-size: 14px;
   border: 2px solid currentColor;
   position: relative;
-  background: var(--bg-color);
+  background: var(--bg-color, #fff);
   overflow: hidden;
 }
 
@@ -258,7 +254,7 @@
 
 .button__text {
   position: relative;
-  font-family: var(--accent-font), 'fantasy', sans-serif;
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
   font-weight: 400;
   line-height: 1.9em;
   z-index: 1;
@@ -271,16 +267,16 @@
   margin-inline: auto;
   margin-block-end: 100px;
   padding: 15px 18px;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color, #fff);
   display: flex;
-  flex-direction: var(--save-button-direction);
+  flex-direction: var(--save-button-direction, column);
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
 .floppy {
-  width: var(--floppy-size);
+  width: var(--floppy-size, 28px);
   position: relative;
   z-index: 1;
   color: var(--button-text-color, #fff);
@@ -305,7 +301,7 @@
 
 .main-body,
 .core {
-  fill: var(--bg-color);
+  fill: var(--bg-color, #fff);
 }
 
 .main-body {
@@ -328,12 +324,12 @@
 
 .like-icon:hover .main-body,
 .like-icon:hover .core {
-  fill: var(--text-color);
+  fill: var(--text-color, #000);
 }
 
 .like-icon:active .main-body,
 .like-icon:active .core {
-  fill: var(--heart-color);
+  fill: var(--heart-color, #FF0000);
 }
 
 .sparks {
@@ -341,17 +337,17 @@
 }
 
 .like-icon.is-liked .core {
-  fill: var(--heart-color);
+  fill: var(--heart-color, #FF0000);
   transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--heart-color);
+  fill: var(--heart-color, #FF0000);
   transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon.is-liked .contour {
-  fill: var(--heart-color);
+  fill: var(--heart-color, #FF0000);
   transition: fill 0.3s 0.06s linear;
 }
 
@@ -403,11 +399,12 @@ opacity: 0;
 }
 
 .dialog__description {
-  font-family: var(--accent-font), 'fantasy', sans-serif;
-  font-variation-settings: 'wght' var(--font-weight);
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
+  font-variation-settings: 'wght' var(--font-weight, 400);
   font-size: 14px;
   line-height: 21px;
   text-transform: uppercase;
+  max-width: 230px;
 }
 
 .dialog__button {
