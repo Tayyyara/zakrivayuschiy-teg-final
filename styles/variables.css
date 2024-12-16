@@ -21,6 +21,7 @@
     --save-button-direction: row;
     --dialog-width: 357px;
     --dialog-padding-inline: 30px;
+    --first-paragraph-opacity: 0.5;
 }
 
 @media (max-width: 600px) {
@@ -29,7 +30,7 @@
         --floppy-size: 28px;
         --save-button-direction: column;
         --dialog-width: 341px;
-        --dialog-padding-inline: 42px;
+        --dialog-padding-inline: 40px;
     }
 }
 
