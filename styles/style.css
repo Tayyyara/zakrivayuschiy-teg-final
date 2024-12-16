@@ -231,7 +231,7 @@
   outline: none;
 }
 
-.card__like-button:focus-visible {
+.card-button:focus-visible {
   box-shadow: 2px 2px 0px 0px currentColor;
 }
 
@@ -289,14 +289,6 @@
   height: 38px;
   padding: 0;
   transition: border 0.3s ease;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  border-color: currentColor;
 }
 
 .main-body,
