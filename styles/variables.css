@@ -22,6 +22,12 @@
     --dialog-width: 357px;
     --dialog-padding-inline: 30px;
     --first-paragraph-opacity: 0.5;
+
+    --filter-dark-theme-invert: 0;
+    --filter-invert-border-color: currentColor;
+    --filter-hue-rotate-bolder-color: #000;
+    --filter-grayscale-value: 0.4;
+    --filter-hue-rotate-value: -90deg;
 }
 
 @media (max-width: 600px) {
