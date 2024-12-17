@@ -56,7 +56,7 @@
 
         --filter-dark-theme-invert: 1;
         --filter-grayscale-value: 0.8;
-        --filter-hue-rotate-value: 90deg; 
+        --filter-hue-rotate-value: 90deg;
     }
 }
 
@@ -76,6 +76,6 @@
     
         --filter-dark-theme-invert: 0;
         --filter-grayscale-value: 0.4;
-        --filter-hue-rotate-value: -90deg;  
+        --filter-hue-rotate-value: -90deg;
     }
 }
