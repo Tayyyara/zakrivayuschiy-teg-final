@@ -26,6 +26,8 @@
     --filter-dark-theme-invert: 0;
     --filter-grayscale-value: 0.4;
     --filter-hue-rotate-value: -90deg;
+
+    --logo-right: 25px;
 }
 
 @media (max-width: 600px) {
@@ -35,5 +37,6 @@
         --save-button-direction: column;
         --dialog-width: 341px;
         --dialog-padding-inline: 40px;
+        --logo-right: 13px;
     }
 }

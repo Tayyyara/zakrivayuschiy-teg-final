@@ -44,13 +44,13 @@
 }
 
 .header__logo {
-  font-size: clamp(49px, calc(0.12 * var(--content-width)), 65px);
+  font-size: clamp(49px, calc(0.12*var(--content-width)), 65px);
   margin-block-start: clamp(120px, 20%, 136px);
   margin-block-end: 20px;
 }
 
 .header__heading {
-  font-size: clamp(14px, calc(0.05 * var(--content-width)), 23px);
+  font-size: clamp(14px, calc(0.05*var(--content-width)), 23px);
   text-transform: uppercase;
   margin-block-end: 25px;
 }
@@ -120,7 +120,7 @@
 .post {
   background-color: var(--bg-color, #fff);
   border: 2px solid currentColor;
-  margin-bottom: 52px;
+  margin-bottom: 50px;
 }
 
 .post__title {
@@ -139,15 +139,16 @@
 
 .post__image-label {
   font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1em;
   font-variation-settings: 'wght' var(--heading-font-weight, 700);
   position: absolute;
   top: 25px;
-  right: 25px;
+  right: var(--logo-right, 13px);
   color: currentColor;
   mix-blend-mode: hard-light;
   z-index: 1;
+  opacity: 50%;
   text-shadow:
     -1px 0 var(--text-outline-color, #000), 
     0 1px var(--text-outline-color, #000), 
@@ -201,7 +202,7 @@
 
 .post__paragraph {
   font-weight: var(--font-weight);
-  margin: 0 25px 25px 25px;
+  margin: 0 25px 26px 25px;
 }
 
 .post__buttons {
@@ -219,6 +220,7 @@
   position: relative;
   background: var(--bg-color, #fff);
   overflow: hidden;
+  padding-top: 5px;
 }
 
 .card__like-button {
@@ -256,7 +258,7 @@
   position: relative;
   font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
   font-weight: 400;
-  line-height: 1.9em;
+  line-height: 1em;
   z-index: 1;
   color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
@@ -266,7 +268,7 @@
   width: fit-content;
   margin-inline: auto;
   margin-block-end: 100px;
-  padding: 15px 18px;
+  padding: 15px 20px;
   background-color: var(--bg-color, #fff);
   display: flex;
   flex-direction: var(--save-button-direction, column);
@@ -289,6 +291,14 @@
   height: 38px;
   padding: 0;
   transition: border 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: currentColor;
 }
 
 .main-body,
