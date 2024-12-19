@@ -1,0 +1,422 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  font-family: var(--main-font, 'Inter-Variable'), sans-serif;
+  font-variation-settings: 'wght' var(--font-weight, 400);
+  font-size: 18px;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #000);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+.header {
+  max-width: var(--content-width, 100%);
+  margin-inline: auto;
+  margin-block-start: 100px;
+  padding-block-end: 10px;
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: var(--bg-color, #fff);
+  border: 2px solid currentColor;
+}
+
+.header__logo {
+  font-size: clamp(49px, calc(0.12*var(--content-width)), 65px);
+  margin-block-start: clamp(120px, 20%, 136px);
+  margin-block-end: 20px;
+}
+
+.header__heading {
+  font-size: clamp(14px, calc(0.05*var(--content-width)), 23px);
+  text-transform: uppercase;
+  margin-block-end: 25px;
+}
+
+.theme-menu__item {
+  margin-block-end: 1em;
+  position: relative;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  color: currentColor;
+  text-transform: uppercase;
+  border: none;
+  line-height: 0.8em;
+  padding-inline-start: 16px;
+  padding-inline-end: 0;
+  position: relative;
+  transition: opacity 0.3s;
+}
+
+.theme-menu__button:disabled,
+.theme-menu__button:hover {
+  opacity: 60%;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  left: -5px;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  width: calc(100% - 15px);
+  height: 2px;
+  display: block;
+  background: currentColor;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  left: 16px;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scale(1);
+}
+
+.content {
+  max-width: var(--content-width, 100%);
+  margin-inline: auto;
+  margin-block-start: 100px;
+}
+
+.post {
+  background-color: var(--bg-color, #fff);
+  border: 2px solid currentColor;
+  margin-bottom: 50px;
+}
+
+.post__title {
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--heading-font-weight, 700);
+  margin-block: 5px;
+  margin-inline: 10px;
+}
+
+.post__image {
+  position: relative;
+  padding: 0;
+  margin-bottom: 25px;
+  border-block: 2px solid currentColor;
+}
+
+.post__image-label {
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
+  font-size: 14px;
+  line-height: 1em;
+  font-variation-settings: 'wght' var(--heading-font-weight, 700);
+  position: absolute;
+  top: 25px;
+  right: var(--logo-right, 13px);
+  color: currentColor;
+  mix-blend-mode: hard-light;
+  z-index: 1;
+  opacity: 50%;
+  text-shadow:
+    -1px 0 var(--text-outline-color, #000), 
+    0 1px var(--text-outline-color, #000), 
+    1px 0 var(--text-outline-color, #000), 
+    0 -1px var(--text-outline-color, #000);
+}
+
+@supports((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+  .post__image-label {
+      -webkit-text-stroke: 1px var(--text-outline-color, #000);
+      text-stroke: 1px var(--text-outline-color, #000);
+      text-shadow: none;
+  }
+} 
+
+.post__image-svg {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.filter-grayscale {
+  filter: grayscale(var(--filter-grayscale-value, 0.8));
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(var(--filter-hue-rotate-value, 0));
+}
+
+.filter-invert {
+  filter: invert(var(--filter-dark-theme-invert, 0));
+}
+
+.filter-sepia {
+  filter: sepia(50%);
+}
+
+.filter-opacity {
+  filter: opacity(0.7);
+}
+
+.filter-blur {
+  filter: blur(5px) grayscale(60%);
+}
+
+.filter-contrast {
+  filter: contrast(200%) grayscale(40%);
+}
+
+.post__paragraph {
+  font-weight: var(--font-weight);
+  margin: 0 25px 26px 25px;
+}
+
+.post__paragraph:nth-child(3) {
+  opacity: var(--first-paragraph-opacity, 0.5);
+  font-style: italic;
+  font-variation-settings: 'slnt' 0;
+}
+
+.post__buttons {
+  margin-block-end: 25px;
+  margin-inline: 25px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2px;
+}
+
+.card-button {
+  font-size: 14px;
+  border: 2px solid currentColor;
+  position: relative;
+  background: var(--bg-color, #fff);
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.card__like-button {
+  width: 130px;
+  min-height: 38px;
+  transition: box-shadow 0.3s;
+}
+
+.card-button:focus {
+  outline: none;
+}
+
+.card-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px currentColor;
+}
+
+.card-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  transform-origin: left;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-button:hover::before {
+  transform: translateX(0);
+}
+
+.button__text {
+  position: relative;
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
+  font-weight: 400;
+  line-height: 1em;
+  z-index: 1;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.save__button {
+  width: fit-content;
+  margin-inline: auto;
+  margin-block-end: 100px;
+  padding: 15px 20px;
+  background-color: var(--bg-color, #fff);
+  display: flex;
+  flex-direction: var(--save-button-direction, column);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.floppy {
+  width: var(--floppy-size, 28px);
+  position: relative;
+  z-index: 1;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  background: none;
+  height: 38px;
+  padding: 0;
+  transition: border 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: currentColor;
+}
+
+.main-body,
+.core {
+  fill: var(--bg-color, #fff);
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.core {
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .main-body,
+.like-icon:active .main-body {
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:hover .core
+.like-icon:active .core {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body,
+.like-icon:hover .core {
+  fill: var(--text-color, #000);
+}
+
+.like-icon:active .main-body,
+.like-icon:active .core {
+  fill: var(--heart-color, #FF0000);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-color, #FF0000);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-color, #FF0000);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-color, #FF0000);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.contour {
+  fill: currentColor;
+  transition: fill 0.1s linear;
+}
+
+.like-icon.is-liked .heart {
+  animation: big-heart 0.3s 0.1s ease-in 1;
+  transform-origin: center;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s 0.3s ease-in 1;
+  transform-origin: center;
+}
+
+.dialog {
+  width: var(--dialog-width, 341px);
+  color: inherit;
+  background-color: var(--bg-color, #fff);
+  border: 2px solid currentColor;
+  padding-block: 30px;
+  padding-inline: var(--dialog-padding-inline, 30px);
+  display: flex;
+  position: fixed;
+  inset: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin: auto;
+}
+
+.dialog:not([open]) {
+pointer-events: none;
+opacity: 0;
+} 
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+} 
+
+.dialog__content {
+  display: flex;
+  gap: 20px;
+} 
+
+.dialog__content .floppy {
+  width: 60px;
+}
+
+.dialog__description {
+  font-family: var(--accent-font, 'PressStart2P'), 'fantasy', sans-serif;
+  font-variation-settings: 'wght' var(--font-weight, 400);
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  max-width: 230px;
+}
+
+.dialog__button {
+  margin-top: 30px;
+  width: 100%;
+  min-height: 38px;
+}

@@ -1,0 +1,84 @@
+/* В этом файле вы опишете значения переменных в разных цветовых схемах.
+Придерживайтесь такого именования классов:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
+*/
+
+.page.theme-dark {
+    --font-weight: 465;
+    --heading-font-weight: 785;
+    --bg-color: #000;
+    --text-color: #00CC14;
+    --text-outline-color: #000;
+    --button-text-color: #00CC14;
+    --bg-image: 
+        repeating-linear-gradient(#000 0%, #000 2px, transparent 2px, transparent 4px),
+        repeating-linear-gradient(90deg, #000 0%, #000 2px, transparent 2px, transparent 4px),
+        linear-gradient(#007f0c, #004306);
+    --first-paragraph-opacity: 0.7;
+
+    --filter-dark-theme-invert: 1;
+    --filter-grayscale-value: 0.8;
+    --filter-hue-rotate-value: 90deg;
+}
+
+.page.theme-light {
+    --font-weight: 400;
+    --heading-font-weight: 700;
+    
+    --bg-color: #fff;
+    --text-color: #000;
+    --text-outline-color: #fff;
+    --button-text-color: #fff;
+    --bg-image: 
+        repeating-linear-gradient(#d3d3d3 0%, #d3d3d3 2px, transparent 2px, transparent 4px),
+        repeating-linear-gradient(90deg, #d3d3d3 0%, #d3d3d3 2px, transparent 2px, transparent 4px),
+        linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+    --first-paragraph-opacity: 0.5;
+    
+    --filter-dark-theme-invert: 0;
+    --filter-grayscale-value: 0.4;
+    --filter-hue-rotate-value: -90deg;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --font-weight: 465;
+        --heading-font-weight: 785;
+        --bg-color: #000;
+        --text-color: #00CC14;
+        --text-outline-color: #000;
+        --button-text-color: #00CC14;
+        --bg-image: 
+            repeating-linear-gradient(#000 0%, #000 2px, transparent 2px, transparent 4px),
+            repeating-linear-gradient(90deg, #000 0%, #000 2px, transparent 2px, transparent 4px),
+            linear-gradient(#007f0c, #004306);
+        --first-paragraph-opacity: 0.7;
+
+        --filter-dark-theme-invert: 1;
+        --filter-grayscale-value: 0.8;
+        --filter-hue-rotate-value: 90deg;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --font-weight: 400;
+        --heading-font-weight: 700;
+    
+        --bg-color: #fff;
+        --text-color: #000;
+        --text-outline-color: #fff;
+        --button-text-color: #fff;
+        --bg-image: 
+            repeating-linear-gradient(#d3d3d3 0%, #d3d3d3 2px, transparent 2px, transparent 4px),
+            repeating-linear-gradient(90deg, #d3d3d3 0%, #d3d3d3 2px, transparent 2px, transparent 4px),
+            linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+        --first-paragraph-opacity: 0.5;
+    
+        --filter-dark-theme-invert: 0;
+        --filter-grayscale-value: 0.4;
+        --filter-hue-rotate-value: -90deg;
+    }
+}
